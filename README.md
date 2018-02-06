@@ -24,25 +24,25 @@
 2. 가이드라인 (Guidelines)
   + [가능한한 TDD를 사용해라 (Whenever possible, use TDD)](#whenever-possible-use-tdd)
   + [테스트들을 적절하게 구조화 해라 (Structure your tests properly)](#structure-your-tests-properly)
-  + [Name your tests properly](#name-your-tests-properly)
-  + [Don't comment out tests](#dont-comment-out-tests)
-  + [Avoid logic in your tests](#avoid-logic-in-your-tests)
-  + [Don't write unnecessary expectations](#dont-write-unnecessary-expectations)
-  + [Properly setup the actions that apply to all the tests involved](#properly-setup-the-actions-that-apply-to-all-the-tests-involved)
-  + [Consider using factory functions in the tests](#consider-using-factory-functions-in-the-tests)
-  + [Know your testing framework API](#know-your-testing-framework-api)
-  + [Don't test multiple concerns in the same test](#dont-test-multiple-concerns-in-the-same-test)
-  + [Cover the general case and the edge cases](#cover-the-general-case-and-the-edge-cases)
-  + [When applying TDD, always start by writing the simplest failing test](#when-applying-tdd-always-start-by-writing-the-simplest-failing-test)
-  + [When applying TDD, always make small steps in each test-first cycle](#when-applying-tdd-always-make-small-steps-in-each-test-first-cycle)
-  + [Test the behaviour, not the internal implementation](#test-the-behaviour-not-the-internal-implementation)
-  + [Don't mock everything](#dont-mock-everything)
-  + [Create new tests for every defect](#create-new-tests-for-every-defect)
-  + [Don't write unit tests for complex user interactions](#dont-write-unit-tests-for-complex-user-interactions)
-  + [Test simple user actions](#test-simple-user-actions)
-  + [Review test code first](#review-test-code-first)
-  + [Practice code katas, learn with pair programming](#practice-code-katas-learn-with-pair-programming)
-3. [References](#references)
+  + [테스트들의 이름을 적절하게 지어라 (Name your tests properly)](#name-your-tests-properly)
+  + [테스트를 코맨트 해버리지 말아라 (Don't comment out tests)](#dont-comment-out-tests)
+  + [테스트에 로직을 피해라 (Avoid logic in your tests)](#avoid-logic-in-your-tests)
+  + [필요없는 expectation들을 작성하지 말아라 (Don't write unnecessary expectations)](#dont-write-unnecessary-expectations)
+  + [포함된 모든 테스트에 적용할 액션들을 적절하게 setup해라 (Properly setup the actions that apply to all the tests involved)](#properly-setup-the-actions-that-apply-to-all-the-tests-involved)
+  + [테스트들에서 팩토리 함수들을 사용하는 것을 고려해라 (Consider using factory functions in the tests)](#consider-using-factory-functions-in-the-tests)
+  + [테스팅 프레임워크 API를 학습해라 (Know your testing framework API)](#know-your-testing-framework-api)
+  + [같은 테스트에서 여러 가지를 관심 갖지 말아라 (Don't test multiple concerns in the same test)](#dont-test-multiple-concerns-in-the-same-test)
+  + [일반적인 케이스와 엣지케이스를 모두 커버하라 (Cover the general case and the edge cases)](#cover-the-general-case-and-the-edge-cases)
+  + [TDD를 적용할 때, 항상 가장 간단한 실패하는 테스트를 작성하는 것으로 부터 시작해라 (When applying TDD, always start by writing the simplest failing test)](#when-applying-tdd-always-start-by-writing-the-simplest-failing-test)
+  + [TDD를 적용할 때, 각 테스트 우선 사이클의 단계는 항상 작게 만들어라 (When applying TDD, always make small steps in each test-first cycle)](#when-applying-tdd-always-make-small-steps-in-each-test-first-cycle)
+  + [동작을 테스트하고, 내부 구현은 테스트 하지 말아라 (Test the behaviour, not the internal implementation)](#test-the-behaviour-not-the-internal-implementation)
+  + [모든 것을 목킹하지 말아라 (Don't mock everything)](#dont-mock-everything)
+  + [모든 결함에 대한 테스트를 작성하라 (Create new tests for every defect)](#create-new-tests-for-every-defect)
+  + [복잡한 사용자의 상호작용에 대한 유닛테스트를 작성하지 마라 (Don't write unit tests for complex user interactions)](#dont-write-unit-tests-for-complex-user-interactions)
+  + [간단한 사용자 액션을 테스트 해라 (Test simple user actions)](#test-simple-user-actions)
+  + [테스트 코드를 먼저 리뷰해라 (Review test code first)](#review-test-code-first)
+  + [Practice code katas, 짝 프로그래밍으로 배워라. (Practice code katas, learn with pair programming)](#practice-code-katas-learn-with-pair-programming)
+3. [참고 (References)](#references)
 
 ## 일반적인 이론들 (General principles)
 
@@ -1062,7 +1062,7 @@ describe('When clicking on the "Preview profile" link', () => {
 
 • [Back to ToC](#user-content-table-of-contents) •
 
-## References
+## 참고 (References)
 
 + Roy Osherove - "JS Unit Testing Good Practices and Horrible Mistakes" : https://www.youtube.com/watch?v=iP0Vl-vU3XM
 + Enrique Amodeo - "Learning Behavior-driven Development with JavaScript" : https://www.packtpub.com/application-development/learning-behavior-driven-development-javascript
