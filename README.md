@@ -7,6 +7,7 @@
 > Github이나 Open Source와 관련된 지식이 풍부하지 않아서 문서 번역이나 fork, contribution에 관한 기초 지식이 없습니다.
 > 혹시 문제가 된다면 알려주시면 삭제 하겠습니다.
 > 영어도 잘 못하지만 국어도 잘 못해서 하다보니 발번역이 되었습니다. 오역이 있을 것 같아서 원문을 같이 달아 두었습니다. 도움이 되시길 바랍니다.
+> (아직 섹션간 링크가 동작하지 않습니다. 영어가 아닌 경우 어떻게 하는지 알아내지 못했습니다. 방법을 알아내면 적용해 두겠습니다.)
 
 ## This is a living document. New ideas are always welcome. Contribute: fork, clone, branch, commit, push, pull request.
 
@@ -76,7 +77,7 @@
 
 유닛 테스트는 테스트 되는 코드와 같은 수준의 품질을 만족해야 한다. 유닛 테스트는 좀 더 유지보수가능하고 읽기 쉽도록 재구성 할 수 있다. (They must meet the same level of quality as the code being tested. They can be refactored as well to make them more maintainable and/or readable.)
 
-• [Back to ToC](# 목차-(Table-of-contents)) •
+• [Back to ToC](#user-content-table-of-contents) •
 
 ### 설계 이론들 (Design principles)
 
