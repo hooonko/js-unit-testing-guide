@@ -7,9 +7,7 @@
 > Github이나 Open Source와 관련된 지식이 풍부하지 않아서 문서 번역이나 fork, contribution에 관한 기초 지식이 없습니다.
 > 혹시 문제가 된다면 알려주시면 삭제 하겠습니다.
 
-> 영어도 잘 못하지만 국어도 잘 못해서 하다보니 발번역이 되었습니다. 오역이 있을 것 같아서 원문을 같이 달아 두었습니다. 도움이 되시길 바랍니다.
-
-> (아직 섹션간 링크가 동작하지 않습니다. 영어가 아닌 경우 어떻게 하는지 알아내지 못했습니다. 방법을 알아내면 적용해 두겠습니다.)
+> 영어도 잘 못하지만 국어도 잘 못해서 번역하다 보니 발번역이 되었습니다. 오역이 있을 것 같아서 원문을 같이 달아 두었습니다. 도움이 되시길 바랍니다.
 
 ## This is a living document. New ideas are always welcome. Contribute: fork, clone, branch, commit, push, pull request.
 
@@ -21,31 +19,31 @@
 
 ## 목차 (Table of contents)
 
-1. 일반적인 이론들 (General principles)
-  + [유닛 테스트 (Unit tests)](#unit-tests)
-  + [설계 이론들 (Design principles)](#design-principles)
-2. 가이드라인 (Guidelines)
-  + [가능한한 TDD를 사용해라 (Whenever possible, use TDD)](#whenever-possible-use-tdd)
-  + [테스트들을 적절하게 구조화 해라 (Structure your tests properly)](#structure-your-tests-properly)
-  + [테스트들의 이름을 적절하게 지어라 (Name your tests properly)](#name-your-tests-properly)
-  + [테스트를 코맨트 해버리지 말아라 (Don't comment out tests)](#dont-comment-out-tests)
-  + [테스트에 로직을 피해라 (Avoid logic in your tests)](#avoid-logic-in-your-tests)
-  + [필요없는 expectation들을 작성하지 말아라 (Don't write unnecessary expectations)](#dont-write-unnecessary-expectations)
-  + [포함된 모든 테스트에 적용할 액션들을 적절하게 setup해라 (Properly setup the actions that apply to all the tests involved)](#properly-setup-the-actions-that-apply-to-all-the-tests-involved)
-  + [테스트들에서 팩토리 함수들을 사용하는 것을 고려해라 (Consider using factory functions in the tests)](#consider-using-factory-functions-in-the-tests)
-  + [테스팅 프레임워크 API를 학습해라 (Know your testing framework API)](#know-your-testing-framework-api)
-  + [같은 테스트에서 여러 가지를 관심 갖지 말아라 (Don't test multiple concerns in the same test)](#dont-test-multiple-concerns-in-the-same-test)
-  + [일반적인 케이스와 엣지케이스를 모두 커버하라 (Cover the general case and the edge cases)](#cover-the-general-case-and-the-edge-cases)
-  + [TDD를 적용할 때, 항상 가장 간단한 실패하는 테스트를 작성하는 것으로 부터 시작해라 (When applying TDD, always start by writing the simplest failing test)](#when-applying-tdd-always-start-by-writing-the-simplest-failing-test)
-  + [TDD를 적용할 때, 각 테스트 우선 사이클의 단계는 항상 작게 만들어라 (When applying TDD, always make small steps in each test-first cycle)](#when-applying-tdd-always-make-small-steps-in-each-test-first-cycle)
-  + [동작을 테스트하고, 내부 구현은 테스트 하지 말아라 (Test the behaviour, not the internal implementation)](#test-the-behaviour-not-the-internal-implementation)
-  + [모든 것을 목킹하지 말아라 (Don't mock everything)](#dont-mock-everything)
-  + [모든 결함에 대한 테스트를 작성하라 (Create new tests for every defect)](#create-new-tests-for-every-defect)
-  + [복잡한 사용자의 상호작용에 대한 유닛테스트를 작성하지 마라 (Don't write unit tests for complex user interactions)](#dont-write-unit-tests-for-complex-user-interactions)
-  + [간단한 사용자 액션을 테스트 해라 (Test simple user actions)](#test-simple-user-actions)
-  + [테스트 코드를 먼저 리뷰해라 (Review test code first)](#review-test-code-first)
-  + [Practice code katas, 짝 프로그래밍으로 배워라. (Practice code katas, learn with pair programming)](#practice-code-katas-learn-with-pair-programming)
-3. [참고 (References)](#references)
+1. [일반적인 이론들 (General principles)](#일반적인-이론들-general-principles)
+  + [유닛 테스트 (Unit tests)](#유닛-테스트-또는-단위-테스트-unit-tests)
+  + [설계 이론들 (Design principles)](#설계-이론들-design-principles)
+2. [가이드라인 (Guidelines)](#가이드라인들-guidelines)
+  + [가능한한 TDD를 사용해라 (Whenever possible, use TDD)](#가능한한-tdd를-사용해라-whenever-possible-use-tdd)
+  + [테스트들을 적절하게 구조화 해라 (Structure your tests properly)](#테스트들을-적절하게-구조화-해라-structure-your-tests-properly)
+  + [테스트들의 이름을 적절하게 지어라 (Name your tests properly)](#테스트들의-이름을-적절하게-지어라-name-your-tests-properly)
+  + [테스트를 코맨트 해버리지 말아라 (Don't comment out tests)](#테스트를-코맨트-해버리지-말아라-dont-comment-out-tests)
+  + [테스트에 로직을 피해라 (Avoid logic in your tests)](#테스트에-로직을-피해라-avoid-logic-in-your-tests)
+  + [필요없는 expectation들을 작성하지 말아라 (Don't write unnecessary expectations)](#필요없는-expectation들을-작성하지-말아라-dont-write-unnecessary-expectations)
+  + [포함된 모든 테스트에 적용할 액션들을 적절하게 setup해라 (Properly setup the actions that apply to all the tests involved)](#포함된-모든-테스트에-적용할-액션들을-적절하게-setup해라-properly-setup-the-actions-that-apply-to-all-the-tests-involved)
+  + [테스트들에서 팩토리 함수들을 사용하는 것을 고려해라 (Consider using factory functions in the tests)](#테스트들에서-팩토리-함수들을-사용하는-것을-고려해라-consider-using-factory-functions-in-the-tests)
+  + [테스팅 프레임워크 API를 학습해라 (Know your testing framework API)](#테스팅-프레임워크-api를-학습해라-know-your-testing-framework-api)
+  + [같은 테스트에서 여러 가지를 관심 갖지 말아라 (Don't test multiple concerns in the same test)](#같은-테스트에서-여러-가지를-관심-갖지-말아라-dont-test-multiple-concerns-in-the-same-test)
+  + [일반적인 케이스와 엣지케이스를 모두 커버하라 (Cover the general case and the edge cases)](#일반적인-케이스와-엣지케이스를-모두-커버하라-cover-the-general-case-and-the-edge-cases)
+  + [TDD를 적용할 때, 항상 가장 간단한 실패하는 테스트를 작성하는 것으로 부터 시작해라 (When applying TDD, always start by writing the simplest failing test)](#tdd를-적용할-때-항상-가장-간단한-실패하는-테스트를-작성하는-것으로-부터-시작해라-when-applying-tdd-always-start-by-writing-the-simplest-failing-test)
+  + [TDD를 적용할 때, 각 테스트 우선 사이클의 단계는 항상 작게 만들어라 (When applying TDD, always make small steps in each test-first cycle)](#tdd를-적용할-때-각-테스트-우선-사이클의-단계는-항상-작게-만들어라-when-applying-tdd-always-make-small-steps-in-each-test-first-cycle)
+  + [동작을 테스트하고, 내부 구현은 테스트 하지 말아라 (Test the behaviour, not the internal implementation)](#동작을-테스트하고-내부-구현은-테스트-하지-말아라-test-the-behaviour-not-the-internal-implementation)
+  + [모든 것을 목킹하지 말아라 (Don't mock everything)](#모든-것을-목킹하지-말아라-dont-mock-everything)
+  + [모든 결함에 대한 테스트를 작성하라 (Create new tests for every defect)](#모든-결함에-대한-테스트를-작성하라-create-new-tests-for-every-defect)
+  + [복잡한 사용자의 상호작용에 대한 유닛테스트를 작성하지 마라 (Don't write unit tests for complex user interactions)](#복잡한-사용자의-상호작용에-대한-유닛테스트를-작성하지-마라-dont-write-unit-tests-for-complex-user-interactions)
+  + [간단한 사용자 액션을 테스트 해라 (Test simple user actions)](#간단한-사용자-액션을-테스트-해라-test-simple-user-actions)
+  + [테스트 코드를 먼저 리뷰해라 (Review test code first)](#테스트-코드를-먼저-리뷰해라-review-test-code-first)
+  + [Practice code katas, 짝 프로그래밍으로 배워라. (Practice code katas, learn with pair programming)](#practice-code-katas-짝-프로그래밍으로-배워라-practice-code-katas-learn-with-pair-programming)
+3. [참고 (References)](#참고-references)
 
 ## 일반적인 이론들 (General principles)
 
@@ -79,7 +77,7 @@
 
 유닛 테스트는 테스트 되는 코드와 같은 수준의 품질을 만족해야 한다. 유닛 테스트는 좀 더 유지보수가능하고 읽기 쉽도록 재구성 할 수 있다. (They must meet the same level of quality as the code being tested. They can be refactored as well to make them more maintainable and/or readable.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 설계 이론들 (Design principles)
 
@@ -94,7 +92,7 @@
 + 알맞은 설계 패턴을 적용해라. 특히 의존성 주입은 객체 생성의 책임을 비즈니스 로직으로 부터 분리시키는 것을 가능하게 해준다. (Apply adequate **design patterns**, especially **dependency injection** that allows separating an object's creation responsibility from business logic)
 + 상태를 전역에서 수정 가능하도록 하는 것은 피해라. (Avoid global mutable state)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ## 가이드라인들 (Guidelines)
 
@@ -108,7 +106,7 @@ These are the 3 pillars of good unit testing.
 
 All the following examples assume the usage of the [Jasmine](http://jasmine.github.io) framework.
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ---------------------------------------
 
@@ -137,7 +135,7 @@ TDD는 설계 프로세스지 테스팅 프로세스가 아니다. TDD는 소프
 
 테스트 우선 접근이 없이 작성된 코드는 보통 테스트하기 힘들다. (Note that code written without a test-first approach is often very hard to test!)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 테스트들을 적절하게 구조화 해라 (Structure your tests properly)
 
@@ -183,7 +181,7 @@ describe('A set of functionalities', () => {
 });
 ```
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 테스트들의 이름을 적절하게 지어라 (Name your tests properly)
 
@@ -252,7 +250,7 @@ describe('The Gallery instance', () => {
 });
 ```
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 테스트를 코맨트 해버리지 말아라. (Don't comment out tests)
 
@@ -260,7 +258,7 @@ describe('The Gallery instance', () => {
 
 절대로 너무 느리디거나 복잡하다거나 false negatives 발생시킨 다는 이유로 코맨트 해버리지 말아라. 대신 빠르게 하거나 간단하게 만들거나 신뢰성 있게 만들어라. 그렇지 않으면 지워버려라. (Don't comment them out because they are too slow, too complex or produce false negatives. Instead, make them fast, simple and trustworthy. If not, remove them completely.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 테스트에 로직을 피해라. (Avoid logic in your tests)
 
@@ -326,7 +324,7 @@ it('should sanitize a filename containing more than one dot', () => {
 });
 ```
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 필요없는 expectation들을 작성하지 말아라 (Don't write unnecessary expectations)
 
@@ -358,7 +356,7 @@ it('should multiply the number passed as parameter and subtract one', () => {
 
 이렇게 하면 유지보수하기 쉬워진다. 당신의 테스트는 더이상 상세 구현에 얽매이지 않는다. (This will improve maintainability. Your test is no longer tied to implementation details.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 포함된 모든 테스트에 적용할 액션들을 적절하게 setup해라. (Properly setup the actions that apply to all the tests involved)
 
@@ -459,7 +457,7 @@ describe('Saving the user profile', () => {
 
 읽기 쉽고 유지보수 가능하게 유지하기 위해서 setup 코드를 최소한으로 유지하는 것을 고려해라. (Consider keeping the setup code minimal to preserve readability and maintainability.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 테스트들에서 팩토리 함수들을 사용하는 것을 고려해라. (Consider using factory functions in the tests)
 
@@ -623,7 +621,7 @@ describe('The search component', () => {
 });
 ```
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 테스팅 프레임워크 API를 학습해라. (Know your testing framework API)
 
@@ -677,7 +675,7 @@ The handy `fit` function used in the example above allows you to execute only on
 
 More information on the [Jasmine website](http://jasmine.github.io).
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 같은 테스트에서 여러 가지를 관심 갖지 말아라. (Don't test multiple concerns in the same test)
 
@@ -706,7 +704,7 @@ it('should update the profile view properly', () => {
 
 테스트 이름에 And 나 Or 가 들어가면.. 좋지 않은 징조이다. (Beware that writing "AND" or "OR" when naming your test smells bad...)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 일반적인 케이스와 엣지케이스를 모두 커버하라. (Cover the general case and the edge cases)
 
@@ -747,7 +745,7 @@ describe('The RPN expression evaluator', () => {
 });
 ```
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### TDD를 적용할 때, 항상 가장 간단한 실패하는 테스트를 작성하는 것으로 부터 시작해라. (When applying TDD, always start by writing the simplest failing test)
 
@@ -769,7 +767,7 @@ it('should return an empty string when passed an empty string', () => {
 
 거기서 부터 점차 기능들을 만들어라. (From there, start building the functionalities incrementally.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### TDD를 적용할 때, 각 테스트 우선 사이클의 단계는 항상 작게 만들어라. (When applying TDD, always make small steps in each test-first cycle)
 
@@ -826,7 +824,7 @@ describe('The RPN expression evaluator', () => {
 });
 ```
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 동작을 테스트하고, 내부 구현은 테스트 하지 말아라. (Test the behaviour, not the internal implementation)
 
@@ -863,7 +861,7 @@ it('should add a user in memory', () => {
 
 균형을 찾아야 한다. (Here, a balance has to be found, unit-testing some key parts can be beneficial.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 모든 것을 목킹하지 말아라. (Don't mock everything)
 
@@ -991,13 +989,13 @@ The `MemoryStorage` used here does not persist data. Nice and easy. Minimal. No 
 - Ajax 호출이나, API 호출, 브라우저 새로고침 같은 걸 하지 않는 경우 (the code being tested does not make AJAX requests, API calls or browser page reloads)
 - 실행 속도가 느리지 않은 경우 (the speed of execution of the tests stays *within the limits you fixed*)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 모든 결함에 대한 테스트를 작성하라. (Create new tests for every defect)
 
 결함이 발견된 경우 코드를 수정하기 전에 그 결함을 다시 재현할 수 있는 테스트를 작성해라. 거기서 부터 평소처럼 TDD를 이용해 수정해라. (Whenever a bug is found, create a test that replicates the problem **before touching any code**. From there, you can apply TDD as usual to fix it.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 복잡한 사용자의 상호작용에 대한 유닛테스트를 작성하지 마라. (Don't write unit tests for complex user interactions)
 
@@ -1011,7 +1009,7 @@ Examples of complex user interactions:
 
 For functional testing, consider using a test automation framework ([Selenium](http://docs.seleniumhq.org/), ...) or QA manual testing.
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 간단한 사용자 액션을 테스트 해라. (Test simple user actions)
 
@@ -1049,7 +1047,7 @@ describe('When clicking on the "Preview profile" link', () => {
 });
 ```
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### 테스트 코드를 먼저 리뷰해라 (Review test code first)
 
@@ -1057,13 +1055,13 @@ describe('When clicking on the "Preview profile" link', () => {
 
 이 것은 개발자의 의도를 빠르게 이해할 수 있도록 도와준다 (테스트 이름만 봐도 알 수 있을지 모른다). (It will help you understand the intent of the developer very quickly (could be just by looking at the names of the tests).)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ### Practice code katas, 짝 프로그래밍으로 배워라. (Practice code katas, learn with pair programming)
 
 경험 만이 선생님이기 때문에, 극단적으로, 탁월함은 연습에서 나온다. 이론을 적용하고 적용하고 또 적용해 봐라. 더 나아지기 위해 항상 피드백을 이용해라. (Because experience is the _only_ teacher. Ultimately, greatness comes from practicing; applying the theory over and over again, using feedback to get better every time.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ## 참고 (References)
 
@@ -1078,10 +1076,10 @@ describe('When clicking on the "Preview profile" link', () => {
 + José Armesto - "Unit Testing sucks (and it’s our fault) " : https://www.youtube.com/watch?v=GZ9iZsMAZFQ
 + Clean code cheat sheet: http://www.planetgeek.ch/2014/11/18/clean-code-cheat-sheet-v-2-4/
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
 
 ## Contributors
 
 Ruben Norte: https://github.com/rubennorte
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](#목차-table-of-contents) •
