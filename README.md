@@ -6,7 +6,9 @@
 > 자바스크립트 테스팅 관련 자료를 찾아 공부하다가 번역을 해 두면 다른 사람들에게 도움이 될 것 같아서 번역을 하기로 했습니다.
 > Github이나 Open Source와 관련된 지식이 풍부하지 않아서 문서 번역이나 fork, contribution에 관한 기초 지식이 없습니다.
 > 혹시 문제가 된다면 알려주시면 삭제 하겠습니다.
+
 > 영어도 잘 못하지만 국어도 잘 못해서 하다보니 발번역이 되었습니다. 오역이 있을 것 같아서 원문을 같이 달아 두었습니다. 도움이 되시길 바랍니다.
+
 > (아직 섹션간 링크가 동작하지 않습니다. 영어가 아닌 경우 어떻게 하는지 알아내지 못했습니다. 방법을 알아내면 적용해 두겠습니다.)
 
 ## This is a living document. New ideas are always welcome. Contribute: fork, clone, branch, commit, push, pull request.
