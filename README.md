@@ -16,7 +16,7 @@
 > The guidelines are illustrated by my own examples, fruit of my personal experience writing and reviewing unit tests.
 > Many thanks to all of the sources of information & contributors.
 
-## 목차 (Table of contents) {#user-content-table-of-contents}
+## 목차 (Table of contents)
 
 1. 일반적인 이론들 (General principles)
   + [유닛 테스트 (Unit tests)](#unit-tests)
@@ -76,7 +76,7 @@
 
 유닛 테스트는 테스트 되는 코드와 같은 수준의 품질을 만족해야 한다. 유닛 테스트는 좀 더 유지보수가능하고 읽기 쉽도록 재구성 할 수 있다. (They must meet the same level of quality as the code being tested. They can be refactored as well to make them more maintainable and/or readable.)
 
-• [Back to ToC](#user-content-table-of-contents) •
+• [Back to ToC](# 목차-(Table-of-contents)) •
 
 ### 설계 이론들 (Design principles)
 
